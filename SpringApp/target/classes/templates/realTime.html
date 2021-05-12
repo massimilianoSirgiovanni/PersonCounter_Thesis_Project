@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#cc3300">
+    <title>Application</title>
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" th:href="@{/css/realTime.css}" />
+    <link rel="apple-touch-icon" href="img/logo192.png">
+</head>
+    
+    <script th:inline="javascript">
+    
+        function setup(){
+            var ID = /*[[${ID}]]*/ 'default';
+            var initialCount = /*[[${initialCount}]]*/ 'default';
+            var max = /*[[${max}]]*/ 'default';
+            setTextColor(initialCount, max);
+            
+            connect();
+            
+            setTimeout(function() {
+                sendCountRequest(ID);
+            }, 6000)
+        }
+        
+        function connect() {
+            var socket = new SockJS('/gs-guide-websocket');
+            stompClient = Stomp.over(socket);
+            stompClient.connect({}, function (frame) {
+            console.log('Connected: ' + frame);
+            stompClient.subscribe('/realtime/count', function (count) {
+            showCount(JSON.parse(count.body).content);
+                });
+            });
+        }
+        
+        function sendCountRequest(ID) {
+            stompClient.send("/app/visualStore/" + ID, {}, {});
+            setTimeout(function() {
+                sendCountRequest(ID);
+            }, 2000);
+        }
+
+        function showCount(count) {
+            var max = /*[[${max}]]*/ 'default';
+            setTextColor(count, max);
+            document.getElementById("CountValue").innerHTML = count;
+            console.log("Realtime update");
+        }
+        
+        function setTextColor(count, max){
+            if(max <= count){
+                 document.getElementById("CountValue").style.color = 'red';
+            }else{
+                document.getElementById("CountValue").style.color = 'green';
+            }
+        }
+    
+    </script>
+    
+    
+<body onload="setup()">
+  
+    <header> 
+             <div id="logo"><a th:href="@{/home}"><img  th:src="@{/images/logo.png}" class="responsive-image" alt="Logo dell'App UnoXVolta"></a></div> 
+        </header>
+    
+
+    
+    
+        <div class="functionality">
+            
+            <div class="lineFunct">
+                <div class="informationContainer">
+                <div id="PrimaryInformations">
+                <div>
+                    <h2>Negozio:</h2>
+                    <h2 id = "primaryInfo" th:text="${store.name}"></h2>
+                    
+                </div>
+                <div>
+                
+                    <h2>ID:</h2>
+                    <h2 id = "primaryInfo" th:text="${store.id}"></h2>
+                    
+                </div>
+                </div>    
+               <div id="SecondaryInformations"> 
+                <h1 id="CountLabel">Persone attualmente in negozio: </h1>    
+                <h1 id="CountValue" th:text="${store.count}"></h1>
+                </div>
+                
+                    
+                <div id="max">
+                    <h3>Questo negozio può contenere al massimo </h3>
+                    <h3 id = "MaxValue" th:text="${store.numberMax}"></h3>
+                    <h3> persone alla volta</h3>
+                    
+                </div>
+                   
+                </div>
+            </div>
+            
+    </div>
+</body>
+</html>

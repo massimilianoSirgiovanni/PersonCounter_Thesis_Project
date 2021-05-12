@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#cc3300">
+        <title>Application</title>
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
+        <link rel="manifest" href="manifest.json">
+        <link rel="apple-touch-icon" href="img/logo192.png">
+        <link rel="stylesheet" th:href="@{/css/inputStyle.css}" />
+    
+    </head>
+    <body>
+        <header>
+        
+            <div id="logo"><a th:href="@{/home}"><img  th:src="@{/images/logo.png}" class="responsive-image" alt="Logo dell'App UnoXVolta"></a></div>
+            
+        </header>
+        
+        <div class="functionality">
+            
+            <div class="lineFunct">
+                <div id="functWrapper">
+                    <h1>Inserisci i parametri per la creazione</h1>
+
+                    <p>Inserisci il nome del negozio che vuoi creare:</p> 
+                    <input type="text" id="name" placeholder="Insert store name here..." class ="largeInput"><br>
+                    <input type="text" id="nameSmall" placeholder="Name" class = "smallInput"><br>
+                    
+                    <p>Inserisci il massimo numero di persone permesse del negozio che vuoi creare:</p>
+                    <input type="text" id="max" placeholder="Insert store max here..." class ="largeInput"><br>
+                    <input type="text" id="maxSmall" placeholder="Max" class = "smallInput"><br>
+                    <button class="confirmInputButton" id="largeButton" onclick="add(document.getElementById('name').value, document.getElementById('max').value)">Aggiungi Negozio</button>
+                    <button class="confirmInputButton" id = "smallButton" onclick="add(document.getElementById('nameSmall').value, document.getElementById('maxSmall').value)">Conferma</button>
+                </div>
+               
+            </div>
+        </div>
+        
+        <script>
+            function add(name, max) {
+        
+                window.location = 'http://localhost:8080/addStore/' + name + "/setmax/" + max;
+                
+        } 
+</script>
+        
+    </body>
+</html>

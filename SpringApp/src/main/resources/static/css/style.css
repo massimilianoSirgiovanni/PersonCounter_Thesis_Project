@@ -1,0 +1,147 @@
+/*START GENERALI*/
+
+* {
+    
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, "sans-serif";
+    font-size: 14px;
+    line-height: 1.2em;
+    color: #333;
+    background: #c1f0f0;
+}
+
+.responsive-image{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    width: 100%;
+}
+
+/*END GENERALI*/
+
+/*START HEADER*/
+
+header{
+    background: #33cccc;
+    border-bottom: 5px solid #ff66d9;
+}
+
+#logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%;
+}
+
+#logo img{
+    width: 100%;
+}
+
+/*END HEADER*/
+
+.lineFunct{
+    
+    background-color: white;
+    width: 80%;
+    margin-top: 15px;
+    margin-left: 10%;
+    margin-right: 10%;
+    
+}
+
+.PairIcon{
+    
+    display: inline;
+    width: 45%;
+}
+
+.PairFunct{
+    display: inline-block;
+}
+
+
+#OddFunct{
+    
+    
+    border: 2px solid #33cccc;
+    width: 24.5%;
+    margin: 0px;
+}
+
+#EvenFunct{
+    
+    border: 2px solid #ff66d9;
+    width: 24.5%;
+    margin: 0px;
+}
+
+/*START MEDIA QUERY*/
+
+@media screen and (max-width:1735px){
+    
+
+    .lineFunct{
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    
+    }
+    
+}
+
+
+
+@media screen and (max-width:1550px){
+    
+    .PairIcon{
+    
+        display: inline-block;
+        width: 100%;
+    }
+    #OddFunct{
+        width: 49.5%;
+    }
+    
+    #EvenFunct{
+        width: 49.5%;
+    }
+    
+    #logo {
+    width: 50%;
+}
+    
+
+}
+
+@media screen and (max-width:1320px){
+    
+    
+    .lineFunct{
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10;   
+    }
+    
+    .PairIcon{
+    
+        display: block;
+    
+}
+    #OddFunct{
+        width: 100%;
+    }
+    
+    #EvenFunct{
+        width: 100%;
+    }
+    
+     #logo {
+    width: 70%;
+}
+    
+
+}

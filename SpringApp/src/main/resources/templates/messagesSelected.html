@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#cc3300">
+    <title>Application</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="img/logo192.png">
+    <link rel="stylesheet" th:href="@{/css/listItemStyle.css}" />
+
+    <style>
+    
+        #buttonDiv{
+            width: 89.5%;
+            margin-left: 10.5%;
+        }
+        
+        @media screen and (max-width:1320px){
+            
+             .lineFunct{
+                width: 96%;
+                margin-left: 2%;
+                margin-right: 2%;   
+            }
+            
+        }
+        
+         @media screen and (max-width:1220px){
+            
+            #dateContent{
+                font-size: 18px;
+            }
+             
+        }
+        @media screen and (max-width:1150px){
+            
+             th{
+                font-size: 18px;
+            }
+            
+            td{
+                font-size: 18px;
+            }
+            
+        }
+        
+        @media screen and (max-width:510px){
+            
+            #dateContent{
+                font-size: 12px;
+            }
+            
+        }
+        
+         @media screen and (max-width:470px){
+            
+            th{
+                font-size: 12px;
+            }
+            
+            td{
+                font-size: 12px;
+            }
+            
+             #dateContent{
+                font-size: 11px;
+            }
+            
+        }
+        
+        @media screen and (max-width:365px){
+            
+            th{
+                font-size: 10px;
+            }
+            
+            td{
+                font-size: 10px;
+            }
+            
+            #dateContent{
+                font-size: 10px;
+            }
+            
+        }
+        
+         @media screen and (max-width:316px){
+            
+            #date{
+                display: none;
+            }
+            
+            #dateContent{
+                display: none;
+            }
+            
+        }
+        
+        @media screen and (max-width:220px){
+            th{
+                font-size: 8px;
+            }
+            
+            td{
+                font-size: 8px;
+            }
+        }
+        
+        @media screen and (max-width:190px){
+            th{
+                font-size: 8px;
+            }
+            
+            td{
+                font-size: 6px;
+            }
+        }
+        
+       
+        
+    </style>
+    
+</head>
+    
+<body>
+        <header>
+        
+             <div id="logo"><a th:href="@{/home}"><img  th:src="@{/images/logo.png}" class="responsive-image" alt="Logo dell'App UnoXVolta"></a></div>
+            
+        </header>
+    
+    
+        
+    
+        
+        <div class="functionality">
+            
+            <div class="lineFunct">
+            <div id="hormenu">
+                <ul> 
+                    <li>
+                        <a href="#">Order By</a>
+                        <ul> 
+                            <li><a th:href="@{'/selectMessages/' + ${store}}">ID</a></li>
+                            <li><a th:href="@{'/selectMessages/' + ${store} + '/OrderByTopic'}">Topic</a></li>
+                            <li><a th:href="@{'/selectMessages/' + ${store} + '/OrderByContent'}">Content</a></li>
+                            <li><a th:href="@{'/selectMessages/' + ${store} + '/OrderByStore'}">Store</a></li>
+                            <li><a th:href="@{'/selectMessages/' + ${store} + '/OrderByDate'}">Date</a></li>
+                        </ul> 
+                    </li>
+                </ul>
+            </div>    
+                
+            <table>
+                <thead>
+                    <tr>
+                
+                        <th>ID</th>
+                        <th>Topic</th>
+                        <th>Content</th>
+                        <th>Store</th>
+                        <th id="date">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="message : ${messages}">
+               
+                
+                        <td th:text="${message.id}">Text ...</td>
+                        <td th:text="${message.topic}">Text ...</td>
+                        <td th:text="${message.message}">Text ...</td>
+                        <td th:text="${message.store}">Text...</td>
+                        <td th:text="${message.creationDate}" id="dateContent">Text...</td>
+                    </tr>
+                </tbody>
+            </table>
+                
+                
+                
+            </div>
+            <div id="buttonDiv">
+                <button id="chooseActionButton" onclick="reloadPage()">Ricarica la pagina</button>
+                <button id="chooseActionButton" onclick="goToHome()">Torna alla Home</button>
+                
+            </div>
+        </div>
+    
+    
+    
+    <script>
+        
+        function reloadPage(){
+            location.reload();
+        }
+            
+        function goToHome() {
+      
+            window.location = 'http://localhost:8080/home';
+
+        } 
+        </script>
+    
+    
+    
+</body>
+</html>

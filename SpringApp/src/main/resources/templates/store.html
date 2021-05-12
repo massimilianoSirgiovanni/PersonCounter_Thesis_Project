@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#cc3300">
+    <title>Application</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="img/logo192.png">
+    <link rel="stylesheet" th:href="@{/css/listItemStyle.css}" />
+
+    <style>
+    
+        #buttonDiv{
+            width: 89.5%;
+            margin-left: 10.5%;
+        }
+        
+    </style>
+    
+</head>
+    
+<body>
+        <header>
+        
+             <div id="logo"><a th:href="@{/home}"><img  th:src="@{/images/logo.png}" class="responsive-image" alt="Logo dell'App UnoXVolta"></a></div>
+            
+        </header>
+        
+        <div class="functionality">
+            
+            <div class="lineFunct">
+                
+            <table>
+                <thead>
+                    <tr>
+                
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Count</th>
+                        <th>Max</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="store : ${stores}">
+               
+                        
+                        <td><a th:href="@{'/realTime/' + ${store.id}}" th:text="${store.id}">Text ...</a></td>
+                        <td th:text="${store.name}">Text ...</td>
+                        <td th:text="${store.count}">Text ...</td>
+                        <td th:text="${store.numberMax}">Text...</td>
+                    </tr>
+                </tbody>
+            </table>
+                
+                
+                
+            </div>
+            <div id="buttonDiv">
+                <button id="chooseActionButton" onclick="reloadPage()">Ricarica la pagina</button>
+                <button id="chooseActionButton" onclick="goToHome()">Torna alla Home</button>
+                
+            </div>
+        </div>
+    
+    
+    
+    <script>
+        
+        function reloadPage(){
+            location.reload();
+        }
+            
+        function goToHome() {
+      
+            window.location = 'http://localhost:8080/home';
+
+        } 
+        </script>
+    
+    
+    
+</body>
+</html>

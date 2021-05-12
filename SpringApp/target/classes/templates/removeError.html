@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+       <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#cc3300">
+        <title>Application</title>
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
+        <link rel="manifest" href="manifest.json">
+        <link rel="apple-touch-icon" href="img/logo192.png">
+        <link rel="stylesheet" th:href="@{/css/inputStyle.css}" />
+    </head>
+    <body>
+        <header>
+        
+            <div id="logo"><a th:href="@{/home}"><img  th:src="@{/images/logo.png}" class="responsive-image" alt="Logo dell'App UnoXVolta"></a></div>
+            
+        </header>
+        
+        <div class="functionality">
+        
+            <div id="firstLineFunct" class="lineFunct">
+                <div id="functWrapper">
+                <h1>Ops, si è verificato un errore nell'eliminazione del negozio</h1>
+                <p>Verifica che i dati inseriti siano corretti</p>
+                <div id="buttons">
+                
+                    <button id="chooseActionButton" onclick="removeAnotherStore()">Riprova</button>
+                    <button id="chooseActionButton" onclick="goToHome()">Torna alla Home</button>
+                    
+                </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+        function removeAnotherStore() {
+      
+            window.location = 'http://localhost:8080/removeStore';
+
+        } 
+            
+        function goToHome() {
+      
+            window.location = 'http://localhost:8080/home';
+
+        } 
+        </script>
+        
+    </body>
+</html>

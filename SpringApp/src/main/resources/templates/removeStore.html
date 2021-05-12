@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#cc3300">
+        <title>Application</title>
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
+        <link rel="manifest" href="manifest.json">
+        <link rel="apple-touch-icon" href="img/logo192.png">
+    <link rel="stylesheet" th:href="@{/css/inputStyle.css}" />
+    
+</head>
+    <body>
+        <header>
+        
+            <div id="logo"><a th:href="@{/home}"><img  th:src="@{/images/logo.png}" class="responsive-image" alt="Logo dell'App UnoXVolta"></a></div>
+            
+        </header>
+        
+        <div class="functionality">
+            
+            <div class="lineFunct">
+                <div id="functWrapper">
+                    <h1>Seleziona uno o un gruppo di negozi</h1>
+
+                    <p>Inserisci il nome o il numero identificativo (id) dei negozi da eliminare:</p> 
+                    <input type="text" id="insertParameterLarge" placeholder="Insert store name or id here..." class ="largeInput"><br>
+                    <input type="text" id="insertParameterSmall" placeholder="Name or id" class = "smallInput"><br>
+  
+                    <div id ="input">
+                        <p>Seleziona il tipo di parametro inserito:</p>
+                        <input type="radio" class = "radioButton" id="id" name="typeOfSelection" value="id">
+                        <label for="id">ID</label><br>
+                        <input type="radio" class = "radioButton" id="name" name="typeOfSelection" value="name">
+                        <label for="name">Name</label><br>
+                        <button class="confirmInputButton" id="largeButton" onclick="removeStore(document.getElementById('insertParameterLarge').value)">Elimina Negozio</button>
+                        <button class="confirmInputButton" id = "smallButton" onclick="removeStore(document.getElementById('insertParameterSmall').value)">Conferma</button>
+                    </div>
+                   
+                </div>
+            </div>
+    </div>
+        
+<script>
+  function removeStore(a) {
+      
+      if (document.getElementById('id').checked) {
+        // Basic package is checked
+        window.location = 'http://localhost:8080/removeStore/' + a;
+
+    } else if (document.getElementById('name').checked) {
+        // Pro package is checked
+       window.location = 'http://localhost:8080/removeStores/' + a;
+
+    }
+        } 
+</script>
+</body>
+</html>

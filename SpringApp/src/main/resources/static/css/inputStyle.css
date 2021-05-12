@@ -1,0 +1,133 @@
+body{
+            font-size: 20px;
+        }
+        
+        .lineFunct{
+            border: 2px solid black;
+            height: 100%;
+        }
+        
+        #functWrapper{
+            margin: 10px;
+            padding: 8px;
+            border: 2px solid black;
+        }
+        
+        p{
+            padding-bottom: 5px;
+            padding-top: 5px;
+            width: 100%;
+        }
+        
+        h1{
+            padding-bottom: 10px;
+        }
+        
+        #input{
+            width: 60%;
+        }
+        
+        input[type=text]{
+            
+            width: 300px;
+            height: 25px;
+            
+        }
+        
+        .confirmInputButton, #chooseActionButton{
+            margin-top: 20px;
+            padding: 8px;
+            font-size: 15px;
+        }
+        
+        input.largeInput { 
+                display: inline-block; 
+            }
+        input.smallInput { 
+                display: none; 
+                padding: 5px;
+                font-size: 12px;
+            }
+
+#largeButton{
+    display: inline-block;
+}
+
+#smallButton{
+    display: none;
+}
+
+        @media screen and (max-width:1200px){
+            
+            body{
+            font-size: 16px;
+        }
+            
+            input[type=text]{
+            
+            width: 45%;
+            
+        }
+            
+        }
+        
+        @media screen and (max-width:800px){
+             body{
+            font-size: 14px;
+        }
+            
+            h1{
+                font-size: 18px;
+            }
+            
+            input[type=text]{
+            
+                width: 80%;
+                
+            
+        }
+            
+            
+        }
+        
+        @media screen and (max-width:400px){
+            
+            body{
+            font-size: 10px;
+        }
+            
+            h1{
+                font-size: 12px;
+            }
+            
+            p {
+                display: none;
+            }
+            
+            input.largeInput { 
+                display: none; 
+            }
+            input.smallInput { 
+                display: inline-block; 
+            }
+            
+            #largeButton{
+                display: none;
+            }
+
+            #smallButton{
+                display: inline-block;
+            }
+
+            
+            
+            #input{
+                width: 80%;
+                margin-top: 20px;
+        }
+            #chooseActionButton{
+                padding: 2px;
+                font-size: 14px;
+            }
+            
+        }

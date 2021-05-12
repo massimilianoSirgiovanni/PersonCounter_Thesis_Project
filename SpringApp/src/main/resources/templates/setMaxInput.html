@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#cc3300">
+        <title>Application</title>
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
+        <link rel="manifest" href="manifest.json">
+        <link rel="apple-touch-icon" href="img/logo192.png">
+    <link rel="stylesheet" th:href="@{/css/inputStyle.css}" />
+    
+    <style>
+    
+    @media screen and (max-width:200px){
+        #functWrapper{
+            border: 1px;
+            margin: 2px;
+            padding: 2px;
+        }
+        }
+        
+    </style>
+    
+</head>
+    <body>
+        <header>
+        
+            <div id="logo"><a th:href="@{/home}"><img  th:src="@{/images/logo.png}" class="responsive-image" alt="Logo dell'App UnoXVolta"></a></div>
+            
+        </header>
+        
+        <div class="functionality">
+            
+            <div class="lineFunct">
+                <div id="functWrapper">
+                    <div id="functWrapper">
+                    <h1>Seleziona uno o un gruppo di negozi</h1>
+
+                    <p>Inserisci il nome o il numero identificativo (id) del negozio da selezionare:</p> 
+                    <input type="text" name="a" id="insertParameter" placeholder="Insert store name or id here..." class ="largeInput"><br>
+                    <input type="text" name="a" id="insertParameterSmall" placeholder="Name or id" class = "smallInput"><br>
+  
+                    <div id ="input">
+                        <p>Seleziona il tipo di parametro inserito:</p>
+                        <input type="radio" class = "radioButton" id="id" name="typeOfSelection" value="id">
+                        <label for="id">ID</label><br>
+                        <input type="radio" class = "radioButton" id="name" name="typeOfSelection" value="name">
+                        <label for="name">Name</label><br>
+                        
+                    </div>
+                    </div>
+                    
+                    <div id="functWrapper">
+                    
+                        <p>Inserisci il nuovo massimo numero di persone che potranno accedere al negozio selezionato:</p>
+                        <input type="text" id="max" placeholder="Insert store max here..." class ="largeInput"><br>
+                        <input type="text" id="maxSmall" placeholder="Max" class = "smallInput"><br>
+                        
+                        <div id ="input">
+                        <button class="confirmInputButton" id="largeButton" onclick="changeMax(document.getElementById('insertParameter').value, document.getElementById('max').value)">Conferma</button>
+                        <button class="confirmInputButton" id = "smallButton" onclick="changeMax(document.getElementById('insertParameterSmall').value, document.getElementById('maxSmall').value)">Conferma</button>
+                    </div>
+                        
+                    </div>    
+                        
+                    
+                        
+                        
+                </div>
+            </div>
+    </div>
+        
+<script>
+  function changeMax(parameter, max) {
+      
+      if (document.getElementById('id').checked) {
+        // Basic package is checked
+        window.location = 'http://localhost:8080/setMax/' + parameter + '/byID/value/' + max;
+
+    } else if (document.getElementById('name').checked) {
+        // Pro package is checked
+       window.location = 'http://localhost:8080/setMax/' + parameter + '/byName/value/' + max;
+
+    }
+        } 
+</script>
+</body>
+</html>

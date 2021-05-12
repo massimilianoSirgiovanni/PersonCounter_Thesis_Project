@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#cc3300">
+        <title>Application</title>
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
+        <link rel="manifest" href="manifest.json">
+        <link rel="apple-touch-icon" href="img/logo192.png">
+        
+        <style>
+            
+            .PairFunct{
+                display: block;
+                border: 1px solid black;
+                height: 204px;
+            }
+            
+            .PairFunct p{
+                float: left;
+            }
+            
+            #funct-message{
+                padding-top: 80px;
+                padding-bottom: 80px;
+                padding-left: 5px;
+               
+            }
+            
+            .functImg{
+                height:200px;
+                width: 200px;
+            }
+            
+            #evenImg{
+                 border: 2px solid #ff66d9;
+            }
+            
+            #oddImg{
+                border: 2px solid #33cccc;
+            }
+            
+            #link-message{
+                 
+                text-decoration: none;
+                color: black;
+            }
+            
+            .lineFunct{
+                height: 1700px;
+            }
+            
+            .lineFunct{
+                border: 2px solid black;
+            
+        }
+        
+            #functWrapper{
+                margin: 10px;
+                padding: 8px;
+                border: 2px solid black;
+                height: 1660px;
+        }
+            
+            @media screen and (max-width:900px){
+                
+                #funct-message{
+                padding-bottom: 60px;
+                    font-size: 15px;
+               
+            }
+                
+            @media screen and (max-width:500px){
+                
+                #funct-message{
+                    padding-bottom: 40px;
+               
+                }
+                
+                .functImg{
+                    height:100px;
+                    width: 100px;
+                }
+                
+                .PairFunct{
+                    height: 104px;
+                }
+                
+                #funct-message{
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                    font-size: 10px;
+                
+            }
+                
+                .lineFunct{
+                border: 1px solid black;
+            
+        }
+        
+            #functWrapper{
+                margin: 0;
+                padding: 0;
+                border: none;
+                height: 1000px;
+        }
+                
+               
+                
+                @media screen and (max-width:300px){
+                    
+                     .PairFunct p{
+                        float: none;
+                    }
+                    
+                    .functImg{
+                        width: 99%;
+                        height: auto;
+                    }
+                    
+                     .PairFunct{
+                    height: auto;
+                }
+                    
+                }
+            
+        </style>
+        
+    </head>
+    
+    
+    <body>
+        <header>
+        
+           <div id="logo"><a th:href="@{/home}"><img  th:src="@{/images/logo.png}" class="responsive-image" alt="Logo dell'App UnoXVolta"></a></div>
+            
+        </header>
+        
+        <div class="functionality">
+        
+            <div id="firstLineFunct" class="lineFunct">
+                <div id="functWrapper">
+                <div class="PairFunct">
+                    <p><a th:href="@{/stores}"><img id="oddImg" class="functImg" th:src="@{/images/getAllStores.png}" alt="Icona per ottenere l'elenco dei negozi collegati all'app" title="Visualizza tutti i negozi"></a></p>
+                    <a id = "link-message" th:href="@{/stores}"><h2 id="funct-message" >Visualizza l'elenco dei negozi collegati all'app</h2></a>
+                    </div>
+                <div  class="PairFunct" style="clear: left;">
+                    <p><a th:href="@{/addStore}"><img id="evenImg" class="functImg" th:src="@{/images/addStore.png}" alt="Icona per aggiungere un negozio" title="Aggiungi un negozio"></a></p>
+                     <a id = "link-message" th:href="@{/addStore}" ><h2 id="funct-message">Collega un nuovo negozio all'app</h2></a>
+                </div>
+                    
+                <div class="PairFunct" style="clear: left;">
+                    <p><a th:href="@{/removeStore}"><img id="oddImg" class="functImg" th:src="@{/images/removeStore.png}" alt="Icona per rimuovere un negozio" title="Rimuovi uno o un gruppo di negozi"></a></p>
+                    <a id = "link-message" th:href="@{/removeStore}"><h2 id="funct-message">Rimuovi un negozio dall'app</h2></a>
+                    </div>
+                <div  class="PairFunct" style="clear: left;">
+                    <p><a th:href="@{/selectStores}"><img id="evenImg" class="functImg" th:src="@{/images/getStore.png}" alt="Icona per selezionare un negozio" title="Seleziona uno o un gruppo di negozi"></a></p>
+                     <a id = "link-message" th:href="@{/selectStores}"><h2 id="funct-message">Visualizza uno o un gruppo di negozi</h2></a>
+                </div>
+                
+                <div  class="PairFunct" style="clear: left;">
+                    <p><a th:href="@{/setMax}"><img id="oddImg" class="functImg" th:src="@{/images/setMax.png}" alt="Icona per aggiornare il massimo numero di persone in un negozio" title="Aggiorna la capienza di un negozio"></a></p>
+                     <a id = "link-message" th:href="@{/setMax}"><h2 id="funct-message">Aggiorna il numero massimo di persone di uno o un gruppo di negozi</h2></a>
+                </div>    
+                    
+                <div  class="PairFunct" style="clear: left;">
+                    <p><a th:href="@{/messages}"><img id="evenImg" class="functImg" th:src="@{/images/Messages.png}" alt="Icona per visualizzare l'elenco dei messaggi ricevuti" title="Visualizza tutti i messaggi"></a></p>
+                     <a id = "link-message" th:href="@{/messages}"><h2 id="funct-message">Visualizza tutti i messaggi</h2></a>
+                </div>
+                <div  class="PairFunct" style="clear: left;">
+                    <p><a th:href="@{/selectMessages}"><img id="oddImg" class="functImg" th:src="@{/images/messagesSelectedByStore.png}" alt="Icona per selezionare tutti i messaggi inviati ad un determinato negozio" title="Seleziona i messaggi in base al destinatario"></a></p>
+                     <a id = "link-message" th:href="@{/selectMessages}"><h2 id="funct-message">Seleziona tutti i messaggi ricevuti da negozi selezionati</h2></a>
+                </div>
+                <div  class="PairFunct" style="clear: left;">
+                    <p><a th:href="@{/deleteMessages}"><img id="evenImg" class="functImg" th:src="@{/images/deleteMessages.png}" alt="Icona per eliminare ogni messaggio ricevuto" title="Elimina tutti i messaggi"></a></p>
+                     <a id = "link-message" th:href="@{/deleteMessages}"><h2 id="funct-message">Elimina tutti i messaggi</h2></a>
+                </div>
+                </div>    
+            </div>
+        </div>
+        
+        <script src="src/main.js"></script>
+    </body>
+</html>

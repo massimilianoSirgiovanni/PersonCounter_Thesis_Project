@@ -1,0 +1,148 @@
+body {
+    font-size: 20px;
+    line-height: 1.2em;
+}
+
+.lineFunct{
+    border: 3px solid black;
+    padding: 4px;
+    background-color: #ff66d9;
+    
+}
+
+.informationContainer{
+    margin: 20px;
+    padding: 10px;
+    padding-left: 20px;
+    border: 3px solid black;
+    background-color:beige;
+}
+
+
+#PrimaryInformations div{
+    
+    display:inline-block;
+    width: 46%;
+    
+}
+
+#PrimaryInformations{
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+#PrimaryInformations div h2{
+    
+    display:inline;
+    
+}
+
+#SecondaryInformations h1{
+    
+    display:inline;
+    
+}
+
+#CountValue{
+    font-size: 45px;
+    color: green;
+}
+
+#SecondaryInformations{
+    padding-bottom: 20px;
+    padding-top: 5px;
+}
+
+#max h3{
+    
+    display:inline;
+    
+}
+
+#max{
+    padding-bottom: 20px;
+    padding-top: 5px;
+}
+
+#MaxValue{
+    color: red;
+}
+
+#primaryInfo{
+    
+    color: #33cccc;
+    
+}
+
+@media screen and (max-width:760px){
+
+    h1{
+        font-size: 16px;
+    }
+    
+    h2{
+        font-size: 15px;
+    }
+    
+    h3{
+        font-size:14px;
+    }
+    
+    #CountValue{
+        font-size: 30px;
+}
+    
+    .informationContainer{
+        margin: 10px;
+        padding: 8px;
+        padding-left: 20px;
+
+}
+    .lineFunct{
+    
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    
+            }
+    
+    
+}
+
+@media screen and (max-width:300px){
+    
+    h1{
+        font-size: 13px;
+    }
+    
+    h2{
+        font-size: 12px;
+    }
+    
+    h3{
+        font-size:11px;
+    }
+    
+    #CountValue{
+        font-size: 20px;
+}
+    
+    .informationContainer{
+        margin: 0px;
+        padding: 0px;
+        border: 0px;
+
+}
+    
+    .lineFunct{
+        border: 1px solid black;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        background-color: beige;
+    
+    }
+    
+}
+
+
