@@ -35,7 +35,6 @@ public class Callback implements MqttCallback {
 		String storeName = elaborateStore(topic);
 		elaborateMessage(topic, message, storeName); // The content of the message is processed and used
 		mqtt.storeMessages(topic, message.toString(), storeName);
-		System.out.println("MESSAGGIO RICEVUTO: " + message + " - CON IL SEGUENTE TOPIC: " + topic);
 	}
 
 	public void elaborateMessage(String topic, MqttMessage message, String storeName) {
